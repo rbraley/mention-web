@@ -1,5 +1,6 @@
 # Django settings for cms project.
 from cms.util.shortcuts import asset_path, project_path
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -78,7 +79,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '4q_bi6x%-!)z#ep91nwqkq#&s$n2chptn_+xe+0c4a$5wnpuy6'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
