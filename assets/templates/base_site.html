@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}Django CMS{% endblock title %}
-{% block site-name %}Django CMS{% endblock site-name %}
+{% block title %}Mention LLC{% endblock title %}
+{% block site-name %}Mention LLC{% endblock site-name %}
+
+{% block meta %}
+	<meta name="robots" content="all"> 
+	<meta name="description" content="{% block meta_description %}Mention LLC is an international consulting agency and software developer that specializes in interfaces and game mechanics.{% endblock meta_description %}" />
+	<link rel="alternate" type="application/rss+xml" title="Latest News" href="http://mentionllc.com/news/rss/v1/latest/" />
+	<link rel="shortcut icon" href="/media/images/favicon.ico" />
+
+	{{ block.super }}
+{% endblock meta %}
 
 {% block styles %}
 	{{ block.super }}
@@ -12,40 +21,24 @@
 {% endblock styles %}
 
 {% block scripts %}
-	<script src="{{ MEDIA_URL }}{{ current_theme.scripts_url }}/application.js"></script>
+	{{ block.super }}
+
+	<script
+		data-main="{{ MEDIA_URL }}scripts/bootstrap.js"
+		src="{{ MEDIA_URL }}scripts/require-jquery.js">
+	</script>
 {% endblock scripts %}
 
-{% block footer-main %}
-<div id="footer-columns">
-	<div class="column">
-		<h3>Features</h3>
+{% block header %}
+	{{ block.super }}
 
+	<div id="contact-data">
 		<ul>
-			<li>Community Tools</li>
-			<li>Dynamic Navigation</li>
-			<li>Powerful news & blogs</li>
-			<li>Simple page creation</li>
-			<li>Easy to extend</li>
+			<li>3208 1/2 NW 65th Street</li>
+			<li>Seattle, WA 98117</li>
+			<li><strong>T</strong> <a href="tel://1-206-866-5661">1.206.866.5661</a></li>
+			<li><strong>E</strong> <a href="mailto:contact@mentionllc.com">contact@mentionllc.com</a></li>
 		</ul>
 	</div>
-
-	<div class="column">
-		<h3>Technologies</h3>
-
-		<ul>
-			<li><a href="http://python.org" title="Python Programming Language">Python</a></li>
-			<li><a href="http://djangoproject.org/" title="Django framework">Django</a></li>
-			<li>
-				<a href="http://daringfireball.net/projects/markdown/">MD</a>,
-				<a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">RST</a>,
-				etc.
-			</li>
-			<li>
-				<a href="http://en.wikipedia.org/wiki/RSS">RSS</a>,
-				<a href="http://atomenabled.org/">ATOM</a>
-			</li>
-		</ul>
-	</div>
-</div>
-{% endblock footer-main %}
+{% endblock header %}
 

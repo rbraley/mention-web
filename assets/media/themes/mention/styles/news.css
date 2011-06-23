@@ -1,0 +1,32 @@
+.articles
+{
+	margin-left: 0px;
+}
+
+#article-editor li, li.article
+{
+	list-style: none;
+	clear: both;
+}
+
+li.article h3
+{
+	margin-bottom: 1em;
+}
+
+li.article h6
+{
+	float: right;
+	margin-bottom: 3em;
+}
+
+#comment-form li
+{
+	list-style: none;
+}
+
+#id_honeypot
+{
+	display: none;
+}
+

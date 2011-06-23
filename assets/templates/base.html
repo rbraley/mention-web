@@ -12,24 +12,44 @@
 
 	{% block styles %}
 	{% endblock styles %}
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23889920-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 
 	{% endblock headers %}
 	</head>
 
 	<body>
 		<div id="page-wrapper">
-			<div id="header">
-				<h1 id="site-name">{% block site_name %}{% endblock site_name %}</h1>
-
-				<div id="navigation-wrapper">
-					<div id="primary-navigation">
-						{% block primary_navigation %}{% navtree "primary" user %}{% endblock primary_navigation %}
+		{% block page-wrapper %}
+			<div id="header-wrapper">
+			{% block header %}
+				<div id="header">
+					<div id="site-title">
+						<h1 id="site-name">{% block site_name %}{% endblock site_name %}</h1>
 					</div>
 
-					<div id="account-navigation">
-						{% block account_navigation %}{% navtree "account" user %}{% endblock account_navigation %}
+					<div id="navigation-wrapper">
+						<div id="primary-navigation">
+							{% block primary_navigation %}{% navtree "primary" user %}{% endblock primary_navigation %}
+						</div>
+
+						<div id="account-navigation">
+							{% block account_navigation %}{% navtree "account" user %}{% endblock account_navigation %}
+						</div>
 					</div>
 				</div>
+			{% endblock header %}
 			</div>
 
 			<div id="content-wrapper">
@@ -39,6 +59,7 @@
 			</div>
 
 			<div id="footer-push"></div>
+			{% endblock page-wrapper %}
 		</div>
 
 		<div id="footer">
@@ -56,6 +77,18 @@
 
 		{% block scripts %}
 		{# Scripts exist in the body for loading performance reasons. #}
+		<script type="text/javascript">
+  		(function() {
+		    var t   = document.createElement('script');
+		    t.type  = 'text/javascript';
+		    t.async = true;
+		    t.id    = 'gauges-tracker';
+		    t.setAttribute('data-site-id', '4df06b74f5a1f50285000002');
+		    t.src = '//secure.gaug.es/track.js';
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(t, s);
+		  })();
+		</script>
 		{% endblock scripts %}
 	</body>
 </html>

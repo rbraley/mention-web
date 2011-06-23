@@ -1,0 +1,16 @@
+#footer-push
+{
+	clear: both;
+}
+
+#footer ul li
+{
+	display: inline-block;
+}
+
+#footer ul
+{
+	display: none;
+}
+
+

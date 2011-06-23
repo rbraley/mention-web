@@ -1,0 +1,19 @@
+{% load comments %}
+{% get_comment_count for article as article_comment_count %}
+{% get_comment_list for article as article_comments %}
+
+{% ifnotequal article_comment_count 0 %}
+<ul class="comments">
+{% for comment in article_comments %}
+	<li class="comment {% cycle "odd" "even" %}">
+		<div class="name">
+			{% if comment.url %}<a href="{{ comment.url }}">{% endif %}
+				{{ comment.name }}
+			{% if comment.url %}</a>{% endif %}
+		</div>
+		<div class="body">{{ comment.comment }}</div>
+	</li>
+{% endfor %}
+</ul>
+{% endifnotequal %}
+

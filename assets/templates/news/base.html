@@ -1,0 +1,19 @@
+{% extends "base_site.html" %}
+
+{% block styles %}
+	{{ block.super }}
+
+	<link rel="stylesheet"
+	      type="text/css"
+	      href="/media/{{ current_theme.styles_url }}/news.css">
+{% endblock styles %}
+
+{% block headers %}
+	{{ block.super }}
+
+	<link rel="alternate"
+	      type="application/rss+xml"
+	      href="{% url news_feed_rss2 "latest" %}"
+	      title="Oxygen News">
+{% endblock headers %}
+

@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'news',
     'navigation',
     'themes',
+    'cms.landing',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -173,4 +174,9 @@ LOGIN_REDIRECT_URL = '/'
 
 # How many days should activation links work before expiring?
 ACCOUNT_ACTIVATION_DAYS = 3
+
+INDEX_VIEW = 'cms.landing.views.headline'
+INDEX_ARGS = {}
+
+ALIASES_MAP_ARGS = False
 

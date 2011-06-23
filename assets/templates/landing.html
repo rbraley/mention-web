@@ -1,0 +1,38 @@
+{% extends "base_site.html" %}
+
+{% block styles %}
+	{{ block.super }}
+
+	<link rel="stylesheet" title="Beijing" href="{{ MEDIA_URL }}{{ current_theme.styles_url }}/landing.css">
+
+	{% if headline %}
+		{% if headline.style %}
+			<link rel="stylesheet" href="{{ MEDIA_URL }}{{ current_theme.styles_url }}/headlines/{{ headline.style }}.css">
+		{% endif %}
+	{% endif %}
+{% endblock styles %}
+
+{% block page-wrapper %}
+	<div id=watermark></div>
+
+	{{ block.super }}
+{% endblock page-wrapper %}
+
+{% block content %}
+
+{% if headline %}
+	<h1>
+		<a href="{{ headline.article.get_absolute_url }}">
+			{{ headline.title }}
+		</a>
+	</h1>
+
+	<h2>
+		<a href="{{ headline.article.get_absolute_url }}">
+			{{ headline.article.title }}
+		</a>
+	</h2>
+{% endif %}
+
+{% endblock content %}
+

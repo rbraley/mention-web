@@ -27,4 +27,4 @@ conf/local.ini
 
 # Ignore static files deployed from django apps
 assets/media/static/
-
+src/cms/settings.py

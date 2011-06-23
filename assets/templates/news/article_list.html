@@ -1,0 +1,52 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+      <ul class="articles">
+      {% for article in article_list %}
+        <li class="article {% cycle "odd" "even" %}">
+          <h3><a href="{% url news_article article.slug %}">
+            {{ article.title }}
+          </a></h3>
+          <div class="summary">
+            {% if article.summary != "" %}
+              {{ article.formatted_summary|safe }}
+            {% else %}
+              {{ article.formatted_body|safe }}
+            {% endif %}
+          </div>
+          <h6>
+          {% if article.body != article.summary %}{% if article.summary != "" %}
+            <p class="right"><a href="{% url news_article article.slug %}">Read more...</a></p>
+          {% endif %}{% endif %}
+            Posted {% if article.author %} by {{ article.author }} {% endif %} on {{article.created_on.date}} at {{article.created_on.time}}
+            (
+              <a href="{% url news_article article.slug %}">permalink</a>
+              {% if user.is_authenticated %}
+                {% if perms.news.change_article or user.is_superuser or user == article.author %}
+                  - <a href="{% url news_article_edit article.pk %}">edit</a>
+                {% endif %}
+
+                {% if perms.news.delete_article or user.is_superuser or user == article.author %}
+                  - <a href="{% url news_article_delete article.pk %}">delete</a>
+                {% endif %}
+              {% endif %}
+            )
+          </h6>
+        </li>
+      {% endfor %}
+		{% if is_paginated %}
+			<div class="pagination">
+				{% if page_obj.has_previous %}
+				<p class="left"><a href="{% url news_index page_obj.previous_page_number %}">&lt;&lt; previous page</a></p>
+				{% endif %}
+
+				{% if page_obj.has_next %}
+				<p class="right"><a href="{% url news_index page_obj.next_page_number %}">next page &gt;&gt;</a></p>
+				{% endif %}
+
+				<p>page {{ page_obj.number }} of {{ paginator.num_pages }}<p>
+			</div>
+		{% endif %}
+      </ul>
+{% endblock content %}
+
