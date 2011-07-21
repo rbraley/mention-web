@@ -1,0 +1,16 @@
+#page-wrapper
+{
+	background-image: url(../../images/weibland2.png);
+}
+
+#content, #content h1 a, #content h2 a
+{
+	color: #2B2B2B !important;
+	text-shadow: 0px 1px 3px #FFF;
+}
+
+#watermark
+{
+	background-image: url(../../images/watermark-dark.png);
+}
+

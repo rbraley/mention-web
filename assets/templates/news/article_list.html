@@ -44,7 +44,7 @@
 				<p class="right"><a href="{% url news_index page_obj.next_page_number %}">next page &gt;&gt;</a></p>
 				{% endif %}
 
-				<p>page {{ page_obj.number }} of {{ paginator.num_pages }}<p>
+				<p class="page_number">page {{ page_obj.number }} of {{ paginator.num_pages }}<p>
 			</div>
 		{% endif %}
       </ul>

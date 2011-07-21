@@ -9,7 +9,7 @@
 	clear: both;
 }
 
-li.article h3
+li.article h1
 {
 	margin-bottom: 1em;
 }
@@ -30,3 +30,22 @@ li.article h6
 	display: none;
 }
 
+div.pagination
+{
+	clear: both;
+}
+
+p.right
+{
+	float: right;
+}
+
+p.left
+{
+	float: left;
+}
+
+p.page_number
+{
+	margin: 0 43%;
+}

@@ -22,13 +22,13 @@
 
 {% if headline %}
 	<h1>
-		<a href="{{ headline.article.get_absolute_url }}">
+		<a href="{% url news_article headline.article.slug %}">
 			{{ headline.title }}
 		</a>
 	</h1>
 
 	<h2>
-		<a href="{{ headline.article.get_absolute_url }}">
+		<a href="{% url news_article headline.article.slug %}">
 			{{ headline.article.title }}
 		</a>
 	</h2>

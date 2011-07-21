@@ -5,9 +5,9 @@
 {% block content %}
 	<ul class="articles">
 		<li class="article odd">
-			<h3><a href="{% url news_article article.slug %}">
+			<h1><a href="{% url news_article article.slug %}">
 				{{ article.title }}
-			</a></h3>
+			</a></h1>
 			<div class="body">
 				{{ article.formatted_body|safe }}
 			</div>
