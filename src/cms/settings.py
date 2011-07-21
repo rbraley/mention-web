@@ -1,5 +1,5 @@
 # Django settings for cms project.
-from cms.util.shortcuts import asset_path, project_path
+from util.shortcuts import asset_path, project_path
 import os
 
 DEBUG = True
